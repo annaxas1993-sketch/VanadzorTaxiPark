@@ -1,0 +1,25 @@
+name: Build Vanadzor Taxi Park APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get source
+        uses: actions/checkout@v4
+
+      - name: Build APK
+        run: |
+          echo "Checking Android project"
+          ls -la
+
+      - name: Prepare APK
+        run: |
+          mkdir -p output
+          echo "Android APK project needs Gradle configuration."
+          echo "A working APK cannot be built without Android source files."
